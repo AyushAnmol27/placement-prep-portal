@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { solveProblem } from '../../services/problemService';
+import { useState } from 'react';
 
-const ProblemCard = ({ problem, isSolved, onSolved, onOpenEditor }) => {
+const ProblemCard = ({ problem, isSolved, onSolved }) => {
   const [loading, setLoading] = useState(false);
 
   const handleSolve = async () => {
@@ -25,7 +25,7 @@ const ProblemCard = ({ problem, isSolved, onSolved, onOpenEditor }) => {
         {problem.description?.slice(0, 100)}...
       </p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
-        {problem.tags?.map(t => <span key={t} className="tag">{t}</span>)}
+        {problem.tags?.map((t) => <span key={t} className="tag">{t}</span>)}
       </div>
       <div className="flex-between" style={{ marginTop: '0.4rem' }}>
         <span className="text-sm text-muted">{problem.platform}</span>
@@ -35,13 +35,6 @@ const ProblemCard = ({ problem, isSolved, onSolved, onOpenEditor }) => {
               Open ↗
             </a>
           )}
-          <button
-            className="btn btn-ghost"
-            style={{ padding: '0.3rem 0.7rem', fontSize: '0.8rem' }}
-            onClick={() => onOpenEditor?.(problem)}
-          >
-            {'</>'}
-          </button>
           <button
             className={`btn ${isSolved ? 'btn-ghost' : 'btn-primary'}`}
             style={{ padding: '0.3rem 0.7rem', fontSize: '0.8rem' }}
