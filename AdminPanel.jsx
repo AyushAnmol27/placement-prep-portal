@@ -4,7 +4,6 @@ import { createProblem, deleteProblem } from '../services/problemService';
 import { createQuestion, deleteQuestion } from '../services/aptitudeService';
 import { createTest, deleteTest } from '../services/testService';
 import Loader from '../components/common/Loader';
-
 const TABS = ['Overview', 'Users', 'Problems', 'Aptitude', 'Tests'];
 
 const AdminPanel = () => {
@@ -202,5 +201,4 @@ const AdminPanel = () => {
     </div>
   );
 };
-
 export default AdminPanel;
