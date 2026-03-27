@@ -5,14 +5,12 @@ import { createQuestion, deleteQuestion } from '../services/aptitudeService';
 import { createTest, deleteTest } from '../services/testService';
 import Loader from '../components/common/Loader';
 const TABS = ['Overview', 'Users', 'Problems', 'Aptitude', 'Tests'];
-
 const AdminPanel = () => {
   const [tab, setTab] = useState('Overview');
   const [overview, setOverview] = useState(null);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-
   useEffect(() => {
     setLoading(true);
     if (tab === 'Overview') {
@@ -29,12 +27,16 @@ const AdminPanel = () => {
     setUsers(prev => prev.map(u => u._id === id ? { ...u, role: updated.role } : u));
   };
 
+
+  
   const handleDeactivate = async (id) => {
     if (!confirm('Deactivate this user?')) return;
     await deleteUser(id);
     setUsers(prev => prev.filter(u => u._id !== id));
   };
 
+
+  
   return (
     <div className="animate-fade" style={{ maxWidth: 1200, margin: '0 auto' }}>
       <div className="flex-between mb-4" style={{ position: 'relative' }}>
@@ -67,6 +69,10 @@ const AdminPanel = () => {
           );
         })}
       </div>
+
+
+
+      
 
       {loading ? <Loader /> : (
         <>
@@ -150,6 +156,8 @@ const AdminPanel = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'minmax(200px, 1.5fr) 1.5fr 100px 100px 120px', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(0,0,0,0.2)', fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border)' }}>
                   <span>Name</span><span>Email</span><span>Role</span><span>XP</span><span>Actions</span>
                 </div>
+
+                
                 {users.map((u, i) => (
                   <div key={u._id} className="card-hover" style={{ display: 'grid', gridTemplateColumns: 'minmax(200px, 1.5fr) 1.5fr 100px 100px 120px', gap: '1rem', padding: '1rem 1.5rem', alignItems: 'center', borderBottom: i < users.length - 1 ? '1px solid var(--border-light)' : 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
