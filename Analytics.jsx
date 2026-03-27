@@ -9,7 +9,6 @@ const BAR_COLORS = ['#6366f1', '#8b5cf6', '#06b6d4', '#f59e0b'];
 const Analytics = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => { getDashboardAnalytics().then(setData).finally(() => setLoading(false)); }, []);
 
   if (loading) return <Loader />;
