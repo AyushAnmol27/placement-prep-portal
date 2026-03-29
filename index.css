@@ -21,17 +21,7 @@
   --accent:             #7de9ff;
   --accent2:            #ac8aff;
 
-  /* Surfaces — tonal depth hierarchy */
-  --surface:                  #0a0e1a;   /* base layer */
-  --surface-dim:              #0a0e1a;
-  --surface-container-lowest: #000000;
-  --surface-container-low:    #0e1320;   /* section layer */
-  --surface-container:        #141928;
-  --surface-container-high:   #1a1f2f;   /* content layer */
-  --surface-container-highest:#1f2537;
-  --surface-bright:           #252b3f;   /* floating/active layer */
-  --surface-variant:          #1f2537;
-
+ 
   /* Aliases used in components */
   --bg:                 var(--surface);
   --bg-secondary:       var(--surface-container-low);
